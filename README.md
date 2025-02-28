@@ -16,7 +16,7 @@ Antes de rodar o projeto, você precisa ter as seguintes ferramentas instaladas:
 
     ```bash
     git clone https://github.com/lucas-santos94/banking-transactions.git
-    cd invoice-process
+    cd banking-transactions
     ```
 
 2. Certifique-se de ter o **Docker** e o **Docker Compose** instalados em sua máquina.
