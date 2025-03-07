@@ -19,10 +19,6 @@ RUN chown -R www-data:www-data /var/www/app/storage /var/www/app/bootstrap/cache
 RUN rm -rf vendor
 RUN composer install --no-interaction
 
-# Configurações do PHP para tamanho máximo de requisições e upload de arquivos
-RUN echo "post_max_size=200M" >> /usr/local/etc/php/conf.d/custom.ini \
-    && echo "upload_max_filesize=200M" >> /usr/local/etc/php/conf.d/custom.ini
-
 EXPOSE 9000
 
 CMD php artisan queue:work --daemon & php-fpm
