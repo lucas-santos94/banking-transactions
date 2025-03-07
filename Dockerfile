@@ -14,11 +14,12 @@ WORKDIR /var/www/app
 
 COPY . /var/www/app
 
-RUN chown -R www-data:www-data /var/www/app/storage /var/www/app/bootstrap/cache
-
-RUN rm -rf vendor
-RUN composer install --no-interaction
-
 EXPOSE 9000
 
-CMD php artisan queue:work --daemon & php-fpm
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+COPY wait-for-it.sh /wait-for-it.sh
+RUN chmod +x /wait-for-it.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
