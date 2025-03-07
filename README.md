@@ -109,6 +109,18 @@ FILESYSTEM_DISK=local
 ```
 A api vai responder 200 e as transações serão enfileiradas e processadas em segundo plano com o Redis
 
+## Representação do Saldo (`balance`)
+
+A coluna `balance` na tabela `accounts` é do tipo `BigInteger` e **representa o saldo em centavos**.  
+Isso significa que todos os valores financeiros armazenados e processados na API devem ser considerados **sem casas decimais**.  
+
+#### **Exemplos:**
+- Um depósito de **R$ 100,00** será armazenado como **`10000`**.
+- Um saque de **R$ 25,50** será representado como **`2550`**.
+- O saldo final de uma conta contendo **R$ 1.250,75** será armazenado como **`125075`**.
+
+Essa abordagem evita problemas de precisão numérica que podem ocorrer ao usar `float` ou `decimal`, garantindo operações financeiras precisas.
+
 ## Testes
 
 Este projeto utiliza o Pest para testes automatizados. Para rodar os testes, siga os passos abaixo:
