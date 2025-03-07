@@ -40,8 +40,8 @@ Antes de rodar o projeto, você precisa ter as seguintes ferramentas instaladas:
 7. Para rodar as migrações e popular o banco de dados com os dados iniciais, execute o comando:
 
     ```bash
-    docker-compose exec banking-transactions php artisan migrate
-    docker-compose exec banking-transactions php artisan db:seed
+    docker-compose exec banking-transactions-app php artisan migrate
+    docker-compose exec banking-transactions-app php artisan db:seed
     ```
 
 8. Agora, você pode acessar a API no endereço `http://localhost:8080`.
